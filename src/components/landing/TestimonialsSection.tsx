@@ -40,11 +40,11 @@ const TestimonialsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            O que Nossos Clientes{" "}
-            <span className="text-gradient">Estão Dizendo</span>
+            Pessoas reais que{" "}
+            <span className="text-gradient">mudaram sua imagem</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Milhares de pessoas já transformaram sua imagem com o Visagismo AI
+            Veja o que elas dizem sobre a experiência com o Visagismo AI
           </p>
         </motion.div>
 

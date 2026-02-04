@@ -25,15 +25,15 @@ const PricingSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Quanto Vale a Sua{" "}
+            Pronta(o) para se ver de um{" "}
             <span className="text-gradient-gold font-display italic">
-              Melhor Versão?
+              jeito diferente?
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Uma consultoria de visagismo presencial custa em média R$ 1.500.
+            Uma consultoria presencial com um visagista custa em média R$ 1.500.
             <br />
-            Tenha a mesma qualidade de análise por uma fração do preço.
+            Com a IA, você tem a mesma precisão — por uma fração do investimento.
           </p>
         </motion.div>
 
@@ -94,7 +94,7 @@ const PricingSection = () => {
 
               {/* CTA Button */}
               <Button variant="gold" size="xl" className="w-full group">
-                Quero Meu Relatório Agora!
+                Sim! Quero Transformar Minha Imagem Agora
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
 

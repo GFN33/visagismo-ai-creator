@@ -51,11 +51,11 @@ const FAQSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Perguntas{" "}
-            <span className="text-gradient">Frequentes</span>
+            Ainda tem{" "}
+            <span className="text-gradient">alguma dúvida?</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tire suas dúvidas sobre o Relatório Visagismo AI
+            Aqui estão as perguntas que mais recebemos
           </p>
         </motion.div>
 
