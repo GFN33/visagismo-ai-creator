@@ -14,33 +14,33 @@ import reportMockup from "@/assets/report-mockup.jpg";
 const benefits = [
   {
     icon: Scan,
-    title: "Análise Facial Detalhada",
-    description: "Formato, proporções e linhas do seu rosto mapeados com precisão",
+    title: "Seu Rosto Mapeado",
+    description: "Você vai entender por que alguns cortes funcionam e outros não",
   },
   {
     icon: Scissors,
-    title: "Sugestões de Corte e Cor",
-    description: "Recomendações de cabelo que valorizam seu rosto",
+    title: "O Corte Certo pra Você",
+    description: "Chegue no salão sabendo exatamente o que pedir",
   },
   {
     icon: Palette,
-    title: "Paleta de Cores Pessoal",
-    description: "Cores que combinam com seu tom de pele e estilo",
+    title: "Suas Cores Ideais",
+    description: "Descubra as cores que fazem você brilhar",
   },
   {
     icon: Sparkles,
-    title: "Dicas de Maquiagem",
-    description: "Técnicas para realçar seus pontos fortes",
+    title: "Make que Valoriza",
+    description: "Técnicas simples para destacar sua beleza natural",
   },
   {
     icon: User,
-    title: "Definição de Estilo",
-    description: "Descubra o estilo que expressa sua personalidade",
+    title: "Seu Estilo Único",
+    description: "Encontre o visual que é a sua cara — de verdade",
   },
   {
     icon: CheckCircle2,
-    title: "Plano de Ação Prático",
-    description: "Passos claros para sua transformação",
+    title: "Próximos Passos",
+    description: "Um plano prático para você começar sua transformação",
   },
 ];
 
@@ -101,13 +101,14 @@ const BenefitsSection = () => {
             className="order-1 lg:order-2"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Seu Relatório{" "}
-              <span className="text-gradient">Visagismo AI</span>
+              Olha só o que você vai{" "}
+              <span className="text-gradient">receber</span>
               <br />
-              Inclui:
+              no seu relatório:
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Um guia completo e personalizado para transformar sua imagem.
+              Mais de 30 páginas feitas especialmente para você, com tudo que 
+              precisa saber para transformar sua imagem.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -136,7 +137,7 @@ const BenefitsSection = () => {
             </div>
 
             <Button variant="hero" size="lg" className="group">
-              Quero Meu Relatório
+              Quero Descobrir Minha Imagem Ideal
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>

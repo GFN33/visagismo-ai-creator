@@ -4,15 +4,15 @@ import { AlertCircle, HelpCircle, Frown, Lightbulb, ArrowRight } from "lucide-re
 const problems = [
   {
     icon: AlertCircle,
-    text: "Cortes de cabelo que não combinam com seu rosto",
+    text: "Você já cortou o cabelo e se arrependeu depois?",
   },
   {
     icon: HelpCircle,
-    text: "Dificuldade em definir seu estilo pessoal",
+    text: "Fica na dúvida se aquela cor ou estilo combina com você?",
   },
   {
     icon: Frown,
-    text: "Insegurança sobre o que valoriza sua imagem",
+    text: "Sente que poderia estar mais bonita(o), mas não sabe por onde começar?",
   },
 ];
 
@@ -29,15 +29,15 @@ const ProblemSection = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Cansado(a) de{" "}
-              <span className="text-gradient">tentar e errar</span>
+              Você merece{" "}
+              <span className="text-gradient">parar de adivinhar</span>
               <br />
-              com sua imagem?
+              e começar a acertar
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8">
-              Você não está sozinho(a). Milhares de pessoas passam anos testando
-              estilos, cores e cortes sem encontrar o que realmente funciona.
+              Sei como é frustrante gastar dinheiro em salão e sair insatisfeita(o). 
+              Ou comprar roupas que pareciam incríveis na loja, mas em você... não ficaram tão bem assim.
             </p>
 
             <div className="space-y-4">
@@ -76,20 +76,20 @@ const ProblemSection = () => {
               </div>
 
               <h4 className="text-xl font-semibold text-gradient mb-4">
-                Visagismo AI oferece clareza e direção
+                Agora você pode ter certeza antes de mudar
               </h4>
 
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Utilizando inteligência artificial avançada, analisamos as
-                proporções únicas do seu rosto para criar recomendações
-                personalizadas que realmente funcionam para você.
+                Com o Visagismo AI, você descobre exatamente o que valoriza 
+                seu rosto antes de ir ao salão. Nada de achismo — é ciência 
+                aplicada à sua beleza única.
               </p>
 
               <ul className="space-y-3 mb-8">
                 {[
-                  "Análise científica das suas proporções faciais",
-                  "Recomendações personalizadas de corte e cor",
-                  "Guia completo de estilo que combina com você",
+                  "Você vai saber exatamente qual corte valoriza seu rosto",
+                  "Descubra as cores que iluminam sua pele",
+                  "Receba um guia prático do SEU estilo ideal",
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full gradient-gold flex items-center justify-center flex-shrink-0">

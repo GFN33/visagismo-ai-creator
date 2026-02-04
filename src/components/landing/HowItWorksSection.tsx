@@ -38,11 +38,12 @@ const HowItWorksSection = () => {
             <span className="text-sm font-medium text-primary">Processo Simples</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Sua Transformação em{" "}
-            <span className="text-gradient">3 Passos</span>
+            É tão simples que você faz{" "}
+            <span className="text-gradient">do seu celular</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Sem complicação. Receba seu relatório personalizado de forma rápida e segura.
+            Em menos de 5 minutos você envia suas fotos. Em até 24 horas, seu relatório 
+            completo chega no seu e-mail. Simples assim.
           </p>
         </motion.div>
 

@@ -49,32 +49,32 @@ const HeroSection = () => {
             >
               <Sparkles className="w-4 h-4 text-accent" />
               <span className="text-sm font-medium text-accent-foreground">
-                Tecnologia de ponta em análise facial
+                +2.500 pessoas já descobriram sua melhor versão
               </span>
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Descubra a Sua{" "}
-              <span className="text-gradient">Imagem Ideal</span>
+              Imagine você se olhando no espelho e{" "}
+              <span className="text-gradient">sentindo total confiança</span>
               <br />
               <span className="font-display italic text-gradient-gold">
-                com Inteligência Artificial
+                com sua nova imagem
               </span>
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Harmonize seu rosto, cabelo e estilo pessoal para revelar sua
-              melhor versão em minutos, com a precisão da Inteligência
-              Artificial.
+              Chega de tentar adivinhar o que combina com você. Em minutos, 
+              você vai saber exatamente qual corte, cor e estilo valorizam 
+              o seu rosto — com a precisão da Inteligência Artificial.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button variant="hero" size="xl" className="group">
-                Quero Meu Relatório Agora
+                Sim! Quero Descobrir Minha Imagem Ideal
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="ghost" size="xl" className="text-muted-foreground">
-                Ver Demonstração
+                Como Funciona?
               </Button>
             </div>
 
