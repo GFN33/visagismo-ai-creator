@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check, Shield, ArrowRight, Sparkles } from "lucide-react";
+import { KIWIFY_CHECKOUT_URL } from "@/lib/config";
 
 const features = [
   "Análise Facial Completa com IA",
@@ -93,9 +94,16 @@ const PricingSection = () => {
               </div>
 
               {/* CTA Button */}
-              <Button variant="gold" size="xl" className="w-full group">
-                Sim! Quero Transformar Minha Imagem Agora
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Button 
+                variant="gold" 
+                size="xl" 
+                className="w-full group"
+                asChild
+              >
+                <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+                  Sim! Quero Transformar Minha Imagem Agora
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
 
               {/* Guarantee */}

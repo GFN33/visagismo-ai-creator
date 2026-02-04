@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight } from "lucide-react";
-import heroVisual from "@/assets/hero-visual.jpg";
+import { KIWIFY_CHECKOUT_URL } from "@/lib/config";
 
 const HeroSection = () => {
   return (
@@ -54,25 +54,31 @@ const HeroSection = () => {
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Imagine você se olhando no espelho e{" "}
-              <span className="text-gradient">sentindo total confiança</span>
-              <br />
-              <span className="font-display italic text-gradient-gold">
-                com sua nova imagem
-              </span>
+              Descubra a Imagem que{" "}
+              <span className="text-gradient">Transmite sua Verdadeira Essência</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Chega de tentar adivinhar o que combina com você. Em minutos, 
-              você vai saber exatamente qual corte, cor e estilo valorizam 
-              o seu rosto — com a precisão da Inteligência Artificial.
+              Maria, imagine a confiança de se olhar no espelho e ver um visual que finalmente harmoniza com quem você é. Use a precisão da IA para encontrar seu corte, cor e estilo ideal em 24h.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="xl" className="group">
-                Sim! Quero Descobrir Minha Imagem Ideal
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <div className="flex flex-col items-center lg:items-start">
+                <Button 
+                  variant="hero" 
+                  size="xl" 
+                  className="group"
+                  asChild
+                >
+                  <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+                    Quero Minha Transformação Agora
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </Button>
+                <p className="text-xs text-muted-foreground mt-2 text-center lg:text-left">
+                  ⚡ Oferta por tempo limitado: Adicione consultoria express no checkout
+                </p>
+              </div>
               <Button variant="ghost" size="xl" className="text-muted-foreground">
                 Como Funciona?
               </Button>
@@ -87,9 +93,11 @@ const HeroSection = () => {
             >
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
-                  <div
+                  <img
                     key={i}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent border-2 border-background"
+                    src={`https://placehold.co/40x40`}
+                    alt={`Cliente ${i}`}
+                    className="w-10 h-10 rounded-full border-2 border-background object-cover"
                   />
                 ))}
               </div>
@@ -114,7 +122,7 @@ const HeroSection = () => {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-medium">
               <img
-                src={heroVisual}
+                src="https://placehold.co/600x400"
                 alt="Análise facial com IA"
                 className="w-full h-auto object-cover animate-float"
               />

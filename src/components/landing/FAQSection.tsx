@@ -9,34 +9,28 @@ import {
 const faqs = [
   {
     question: "Como funciona o upload das fotos?",
-    answer:
-      "Após a compra, você receberá um link para preencher um questionário simples e fazer o upload de 3 fotos do seu rosto (frente, perfil esquerdo e perfil direito). As instruções são bem claras e você pode usar a câmera do seu celular.",
+    answer: "Após a compra, você será direcionado(a) para um formulário seguro onde poderá fazer o upload das suas fotos (frontal e perfil) e responder a um breve questionário. É simples e rápido!"
   },
   {
     question: "Qual o prazo de entrega do relatório?",
-    answer:
-      "Seu relatório personalizado será entregue no seu e-mail em até 24 horas úteis após o envio das fotos. Em alguns casos, pode ser ainda mais rápido!",
+    answer: "Seu relatório personalizado será entregue em seu e-mail em até 24 horas após o envio das suas fotos. Nossa IA trabalha rápido para você não esperar!"
   },
   {
     question: "Posso pedir revisão?",
-    answer:
-      "Sim! Se você tiver alguma dúvida ou precisar de esclarecimentos sobre o seu relatório, nossa equipe está disponível por e-mail para ajudar. Queremos que você aproveite ao máximo sua análise.",
+    answer: "Nosso relatório é gerado com alta precisão. Caso tenha dúvidas, nossa equipe de suporte está à disposição. Oferecemos garantia de satisfação de 7 dias!"
   },
   {
     question: "É seguro pagar pela Kiwify?",
-    answer:
-      "Sim, totalmente seguro! A Kiwify é uma das maiores plataformas de pagamento do Brasil, com certificação SSL e criptografia de ponta. Seus dados estão 100% protegidos.",
+    answer: "Sim, a Kiwify é uma das maiores e mais seguras plataformas de pagamento do Brasil, garantindo a proteção total dos seus dados."
+  },
+  {
+    question: "O que acontece com minhas fotos?",
+    answer: "Sua privacidade é nossa prioridade absoluta. Suas fotos são deletadas automaticamente de nossos servidores após a análise e entrega do relatório."
   },
   {
     question: "O relatório serve para homens e mulheres?",
-    answer:
-      "Sim! O Visagismo AI analisa as proporções faciais de qualquer pessoa, oferecendo recomendações personalizadas de cabelo, barba (para homens), maquiagem (para mulheres) e estilo em geral.",
-  },
-  {
-    question: "Como funciona a garantia de 7 dias?",
-    answer:
-      "Se por qualquer motivo você não ficar satisfeito(a) com o relatório, basta enviar um e-mail em até 7 dias após a compra e devolvemos 100% do seu dinheiro. Sem burocracia.",
-  },
+    answer: "Sim! O Visagismo AI possui algoritmos específicos para analisar traços masculinos e femininos, oferecendo recomendações personalizadas para todos os gêneros."
+  }
 ];
 
 const FAQSection = () => {

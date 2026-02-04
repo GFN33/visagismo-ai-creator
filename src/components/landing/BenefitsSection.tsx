@@ -9,7 +9,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import reportMockup from "@/assets/report-mockup.jpg";
+import { KIWIFY_CHECKOUT_URL } from "@/lib/config";
 
 const benefits = [
   {
@@ -59,7 +59,7 @@ const BenefitsSection = () => {
           >
             <div className="relative">
               <img
-                src={reportMockup}
+                src="https://placehold.co/600x400"
                 alt="Relatório Visagismo AI"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-medium"
               />
@@ -136,9 +136,16 @@ const BenefitsSection = () => {
               ))}
             </div>
 
-            <Button variant="hero" size="lg" className="group">
-              Quero Descobrir Minha Imagem Ideal
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="group"
+              asChild
+            >
+              <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+                Quero Descobrir Minha Imagem Ideal
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </motion.div>
         </div>

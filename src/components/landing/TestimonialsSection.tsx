@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Mariana Silva",
     role: "Empresária",
-    image: null,
+    image: "https://placehold.co/48x48",
     content:
       "Finalmente entendi porque alguns cortes funcionavam e outros não. O relatório me deu clareza total sobre meu tipo de rosto e as cores ideais. Recomendo demais!",
     rating: 5,
@@ -13,7 +13,7 @@ const testimonials = [
   {
     name: "Carlos Eduardo",
     role: "Advogado",
-    image: null,
+    image: "https://placehold.co/48x48",
     content:
       "Sempre tive dúvidas sobre barba e cabelo. O Visagismo AI me mostrou exatamente o que valoriza minhas feições. Minha esposa adorou o resultado!",
     rating: 5,
@@ -21,7 +21,7 @@ const testimonials = [
   {
     name: "Juliana Costa",
     role: "Designer",
-    image: null,
+    image: "https://placehold.co/48x48",
     content:
       "Como profissional da área visual, fiquei impressionada com a precisão da análise. O relatório é super completo e as dicas são práticas. Vale cada centavo!",
     rating: 5,
@@ -83,9 +83,11 @@ const TestimonialsSection = () => {
 
                 {/* Author */}
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-bold">
-                    {testimonial.name.charAt(0)}
-                  </div>
+                  <img
+                    src={testimonial.image || `https://placehold.co/48x48`}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
                   <div>
                     <p className="font-semibold text-foreground">
                       {testimonial.name}
