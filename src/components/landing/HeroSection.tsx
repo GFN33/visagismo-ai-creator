@@ -1,19 +1,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight, CheckCircle, Play } from "lucide-react";
+import { Sparkles, ArrowRight, CheckCircle } from "lucide-react";
 import { KIWIFY_CHECKOUT_URL } from "@/lib/config";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden gradient-hero">
-      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 pt-20 pb-12 lg:pt-28">
-        {/* Header */}
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,18 +26,16 @@ const HeroSection = () => {
               Visagismo <span className="text-gradient">AI</span>
             </span>
           </div>
-          {/* Banner de Urgência Sutil */}
-          <div className="hidden sm:flex items-center gap-2 text-sm text-amber-600 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+          <div className="hidden sm:flex items-center gap-2 text-sm text-green-700 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            Oferta por tempo limitado
+            Vagas abertas agora
           </div>
         </motion.nav>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -58,37 +54,36 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* HEADLINE OTIMIZADA PARA CONVERSÃO */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
               Pare de errar no corte. <br/>Descubra sua beleza em
               <span className="text-gradient block mt-2">Segundos com IA.</span>
             </h1>
 
-            {/* COPY CORRIGIDA (SEM "MARIA") E MAIS PERSUASIVA */}
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
               Imagine a confiança de se olhar no espelho e ter certeza que seu visual é perfeito para você. Nossa Inteligência Artificial analisa 120 pontos do seu rosto para revelar seu corte, cor e estilo ideal.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <div className="flex flex-col items-center lg:items-start w-full sm:w-auto">
+                
+                {/* BOTÃO HERO VERDE */}
                 <Button 
-                  variant="hero" 
                   size="xl" 
-                  className="group w-full sm:w-auto shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300"
+                  className="group w-full sm:w-auto h-14 text-lg bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 animate-pulse-green"
                   asChild
                 >
                   <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
                     Quero Minha Análise Agora
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform ml-2" />
                   </a>
                 </Button>
+                
                 <p className="text-xs text-muted-foreground mt-3 text-center lg:text-left flex items-center justify-center lg:justify-start gap-1">
                   <CheckCircle className="w-3 h-3 text-green-500" /> Compra segura e entrega em 24h
                 </p>
               </div>
             </div>
 
-            {/* Trust badges */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -99,7 +94,7 @@ const HeroSection = () => {
                 {[1, 2, 3, 4].map((i) => (
                   <img
                     key={i}
-                    src={`https://placehold.co/40x40`} // IMPORTANTE: Substituir por fotos reais de clientes felizes
+                    src={`https://placehold.co/40x40`}
                     alt={`Cliente ${i}`}
                     className="w-10 h-10 rounded-full border-2 border-background object-cover grayscale hover:grayscale-0 transition-all"
                   />
@@ -117,7 +112,6 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Visual - SUGESTÃO: USAR UM "ANTES E DEPOIS" AQUI */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -125,19 +119,15 @@ const HeroSection = () => {
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
-              {/* IMAGEM: Tente colocar um GIF ou Vídeo mostrando o "Scanner" da IA passando no rosto */}
               <img
                 src="https://placehold.co/600x400" 
                 alt="Análise facial com IA"
                 className="w-full h-auto object-cover animate-float"
               />
-              
-              {/* Overlay de "Scanning" para dar ar tecnológico */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-primary/50 shadow-[0_0_20px_rgba(var(--primary),0.5)] animate-scan" />
             </div>
             
-            {/* Floating cards - Prova de Valor */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -161,7 +151,6 @@ const HeroSection = () => {
   );
 };
 
-// Componente auxiliar para estrelas
 const StarFilled = () => (
   <svg className="w-3 h-3 text-amber-400 fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />

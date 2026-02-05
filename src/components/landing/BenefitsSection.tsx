@@ -46,10 +46,9 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 xl:py-28 gradient-section">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          {/* Left - Mockup */}
+    <section className="py-20 lg:py-28 gradient-section">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -63,8 +62,6 @@ const BenefitsSection = () => {
                 alt="Relatório Visagismo AI"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-medium"
               />
-              
-              {/* Floating elements */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -92,7 +89,6 @@ const BenefitsSection = () => {
             </div>
           </motion.div>
 
-          {/* Right - Benefits */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -100,18 +96,18 @@ const BenefitsSection = () => {
             transition={{ duration: 0.6 }}
             className="order-1 lg:order-2"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Olha só o que você vai{" "}
               <span className="text-gradient">receber</span>
               <br />
               no seu relatório:
             </h2>
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
+            <p className="text-lg text-muted-foreground mb-8">
               Mais de 30 páginas feitas especialmente para você, com tudo que 
               precisa saber para transformar sua imagem.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
@@ -119,16 +115,16 @@ const BenefitsSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-card border border-border hover:shadow-soft transition-shadow"
+                  className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border hover:shadow-soft transition-shadow"
                 >
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+                  <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
+                    <benefit.icon className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-foreground mb-1">
+                    <h4 className="font-semibold text-foreground mb-1">
                       {benefit.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       {benefit.description}
                     </p>
                   </div>
@@ -136,14 +132,14 @@ const BenefitsSection = () => {
               ))}
             </div>
 
+            {/* BOTÃO VERDE */}
             <Button 
-              variant="hero" 
               size="lg" 
-              className="group w-full sm:w-auto"
+              className="group bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-500/20 animate-pulse-green"
               asChild
             >
               <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
-                <span className="text-sm sm:text-base">Quero Descobrir Minha Imagem Ideal</span>
+                Quero Descobrir Minha Imagem Ideal
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>

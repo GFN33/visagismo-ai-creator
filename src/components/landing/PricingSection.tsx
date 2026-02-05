@@ -16,15 +16,13 @@ const features = [
 ];
 
 const PricingSection = () => {
-  // Estado para o cronômetro
   const [timeLeft, setTimeLeft] = useState({ minutes: 15, seconds: 0 });
 
   useEffect(() => {
-    // Timer de escassez (loop de 15 min)
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev.seconds === 0) {
-          if (prev.minutes === 0) return { minutes: 15, seconds: 0 }; // Reinicia para dar a sensação de urgência perpétua ou pare em 00:00
+          if (prev.minutes === 0) return { minutes: 15, seconds: 0 };
           return { minutes: prev.minutes - 1, seconds: 59 };
         }
         return { ...prev, seconds: prev.seconds - 1 };
@@ -34,7 +32,6 @@ const PricingSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Formatação do tempo (00:00)
   const formatTime = (value: number) => value.toString().padStart(2, "0");
 
   return (
@@ -47,7 +44,6 @@ const PricingSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          {/* Alerta de Escassez no Topo */}
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-600 px-4 py-2 rounded-full font-bold mb-6 animate-pulse">
             <Timer className="w-4 h-4" />
             <span>
@@ -75,20 +71,17 @@ const PricingSection = () => {
           className="max-w-lg mx-auto"
         >
           <div className="relative group">
-            {/* Efeito de brilho pulsante atrás do card */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-green-400 to-green-600 rounded-[2rem] blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
             
-            {/* Badge Flutuante */}
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20 w-full text-center">
-              <span className="px-6 py-2 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full text-white text-sm font-bold shadow-lg flex items-center justify-center gap-2 w-max mx-auto uppercase tracking-wide">
+              <span className="px-6 py-2 bg-green-600 rounded-full text-white text-sm font-bold shadow-lg flex items-center justify-center gap-2 w-max mx-auto uppercase tracking-wide border border-green-500">
                 <Sparkles className="w-4 h-4" />
                 Oferta Exclusiva Hoje
               </span>
             </div>
 
-            <div className="bg-card rounded-3xl p-8 lg:p-10 shadow-2xl border border-primary/10 relative overflow-hidden z-10">
+            <div className="bg-card rounded-3xl p-8 lg:p-10 shadow-2xl border border-green-500/20 relative overflow-hidden z-10">
               
-              {/* Preço */}
               <div className="text-center mb-8 mt-4">
                 <p className="text-muted-foreground font-medium mb-1">
                   De <span className="line-through text-red-400 font-bold">R$ 497,00</span> por apenas:
@@ -96,7 +89,7 @@ const PricingSection = () => {
                 <div className="flex flex-col items-center justify-center mb-2">
                   <div className="flex items-end gap-1">
                     <span className="text-lg text-muted-foreground mb-2 font-medium">12x de</span>
-                    <span className="text-5xl lg:text-6xl font-bold text-gradient">
+                    <span className="text-5xl lg:text-6xl font-bold text-foreground">
                       R$ 24,75*
                     </span>
                   </div>
@@ -105,13 +98,12 @@ const PricingSection = () => {
                   </p>
                 </div>
                 <div className="bg-green-500/10 rounded-lg py-2 px-4 inline-block mt-2 border border-green-500/20">
-                  <p className="text-green-600 text-sm font-bold">
+                  <p className="text-green-700 text-sm font-bold">
                     Economize R$ 200,00 agora
                   </p>
                 </div>
               </div>
 
-              {/* Features com ícones mais destacados */}
               <div className="space-y-4 mb-8">
                 {features.map((feature, index) => (
                   <div
@@ -126,11 +118,10 @@ const PricingSection = () => {
                 ))}
               </div>
 
-              {/* CTA Button */}
+              {/* BOTÃO VERDE E PULSANTE AQUI */}
               <Button 
-                variant="gold" 
                 size="xl" 
-                className="w-full group text-lg h-14 animate-pulse-subtle shadow-xl shadow-amber-500/20"
+                className="w-full group text-lg h-16 bg-green-600 hover:bg-green-700 text-white border-b-4 border-green-800 active:border-b-0 active:translate-y-1 transition-all animate-pulse-green shadow-xl shadow-green-500/30"
                 asChild
               >
                 <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
@@ -139,13 +130,11 @@ const PricingSection = () => {
                 </a>
               </Button>
 
-              {/* Scarcity Trigger Footer */}
               <div className="mt-4 flex items-center justify-center gap-2 text-xs text-red-500/80 font-medium bg-red-50 p-2 rounded-lg">
                 <AlertCircle className="w-4 h-4" />
-                <span>O desconto de R$ 200,00 expira em breve</span>
+                <span>O desconto expira em breve</span>
               </div>
 
-              {/* Guarantee */}
               <div className="mt-6 pt-6 border-t border-border flex items-center justify-center gap-2">
                 <Shield className="w-5 h-5 text-muted-foreground" />
                 <p className="text-xs text-muted-foreground text-center">
