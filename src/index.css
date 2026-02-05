@@ -2,37 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fontes Elegantes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
 @layer base {
   :root {
-    /* Base Colors - Clean & Sophisticated */
+    /* --- PALETA VISAGISMO LUXO --- */
+    
+    /* Fundo: Branco Puro ou Off-white muito leve */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%; /* Jet Black */
+    /* Texto: Preto Profundo (não preto absoluto) */
+    --foreground: 240 10% 3.9%;
 
+    /* Cards: Branco com borda sutil */
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    /* Primary - Deep Navy/Black for Authority */
+    /* Primary: Preto Elegante (Autoridade) */
     --primary: 240 5.9% 10%;
     --primary-foreground: 0 0% 98%;
 
+    /* Secondary: Cinza Gelo */
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
 
+    /* Muted: Cinza Suave para textos de apoio */
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    /* Accent: DOURADO (Base para detalhes) */
+    --accent: 45 93% 47%; 
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --ring: 45 93% 47%; /* Anel de foco dourado */
 
     --radius: 0.75rem;
   }
@@ -40,7 +50,23 @@
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
-    /* ... rest of dark mode variables ... */
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
@@ -50,113 +76,104 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', sans-serif;
+  }
+  /* Títulos com fonte Serifada (Playfair) para ar de Luxo/Moda */
+  h1, h2, h3, .font-display {
+    font-family: 'Playfair Display', serif;
   }
 }
 
 @layer utilities {
-  /* * TIPOGRAFIA E CORES DE LUXO 
-   * Aqui restauramos a cor "Pizza/Ouro" que você gostou
+  /* * CORES "PIZZA GOLD" & ESTILOS VISAGISMO 
+   * (Forçados via Tailwind para garantir funcionamento)
    */
 
-  /* Texto Dourado Vibrante (Igual ao da "Pizza") */
+  /* Texto Dourado Vibrante */
   .text-gradient-gold {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600;
   }
   
-  /* Gradiente Padrão para Títulos (Preto suave para Cinza) */
+  /* Texto Principal (Gradiente Sutil Preto->Cinza) */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900;
   }
 
-  /* Fundos Dourados (ícones, badges) */
+  /* Badges e Ícones Dourados */
   .gradient-gold {
-    @apply bg-gradient-to-br from-amber-400 to-amber-600 text-white;
+    @apply bg-gradient-to-br from-amber-400 to-amber-600 text-white border border-amber-400/20;
   }
 
-  /* Fundo Principal Elegante */
-  .gradient-hero {
-    @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-50 via-white to-white;
-  }
-  
-  .gradient-section {
-    @apply bg-gradient-to-b from-white to-gray-50/50;
-  }
-
+  /* Ícones Pretos (Primary) */
   .gradient-primary {
     @apply bg-gradient-to-br from-gray-900 to-gray-700 text-white;
   }
 
-  /* Sombras Suaves */
+  /* Fundo Hero (Radial Clean) */
+  .gradient-hero {
+    @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-100 via-white to-white;
+  }
+  
+  .gradient-section {
+    @apply bg-gradient-to-b from-white to-gray-50;
+  }
+
+  /* Sombras de Luxo */
   .shadow-soft {
     box-shadow: 0 8px 30px rgba(0,0,0,0.04);
   }
-  
   .shadow-medium {
     box-shadow: 0 12px 40px rgba(0,0,0,0.08);
   }
-  
   .shadow-gold {
-    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
-  }
-
-  /* Efeitos de Texto */
-  .font-display {
-    font-family: 'Playfair Display', serif; /* Se não tiver a fonte, ele usa fallback */
-    letter-spacing: -0.02em;
+    box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.5);
   }
 }
 
-/* * ANIMAÇÕES
+/* * ANIMAÇÕES OTIMIZADAS 
  */
 
-/* Flutuar (Imagens) */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Escanear (Linha do Scanner Facial) */
-@keyframes scan {
-  0% { top: 0%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-.animate-scan {
-  animation: scan 3s linear infinite;
-}
-
-/* Pulso Sutil (Cards) */
-@keyframes pulse-subtle {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-}
-.animate-pulse-subtle {
-  animation: pulse-subtle 3s ease-in-out infinite;
-}
-
-/* * BOTÃO VERDE PULSANTE (CTA) 
- * Mantido conforme solicitado
- */
+/* Botão Verde Pulsante (CORRIGIDO) */
 @keyframes pulse-green {
   0% {
     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
     transform: scale(1);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
-    transform: scale(1.02);
+    box-shadow: 0 0 0 12px rgba(22, 163, 74, 0);
+    transform: scale(1.03); /* Leve aumento */
   }
   100% {
     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
     transform: scale(1);
   }
 }
+
 .animate-pulse-green {
-  animation: pulse-green 2s infinite;
+  animation: pulse-green 2s infinite ease-in-out;
+}
+
+/* Imagens Flutuando */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Linha de Scanner Facial */
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+.animate-scan {
+  animation: scan 2.5s linear infinite;
+}
+
+/* Ocultar elementos indesejados (Lovable badge) */
+[data-lovable], .lovable-badge {
+  display: none !important;
 }
