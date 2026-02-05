@@ -2,65 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. Importação de Fontes (Essencial para o visual "Pizza/Luxo") */
+/* Importação de Fontes */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 @layer base {
   :root {
-    /* --- CORES BASE (MODO CLARO) --- */
-    --background: 0 0% 100%;       /* Branco Puro */
-    --foreground: 240 10% 3.9%;    /* Preto Suave (Leitura confortável) */
-
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    /* PRIMARY: Mudamos do Azul TI para Preto "Vogue" (Autoridade) */
-    --primary: 240 5.9% 10%; 
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    /* ACCENT: Dourado Ouro (Base para anéis e detalhes) */
-    --accent: 45 93% 47%; 
-    --accent-foreground: 0 0% 98%;
-
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 45 93% 47%; /* Foco dos inputs em Dourado */
-
-    --radius: 0.75rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 45 93% 47%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
   }
 }
 
@@ -72,105 +38,47 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
   }
-  /* Aplica fonte serifada elegante em todos os títulos automaticamente */
   h1, h2, h3, h4, .font-display {
     font-family: 'Playfair Display', serif;
   }
 }
 
 @layer utilities {
-  /* * CLASSES DE CORES "INFALÍVEIS" 
-   * Usamos @apply com cores nativas do Tailwind para garantir que funcionem
-   * mesmo se as variáveis CSS falharem.
-   */
+  /* --- CLASSES DE COR "HARDCODED" PARA GARANTIR VISUAL --- */
 
-  /* Dourado Vibrante (Efeito Ouro/Pizza) */
+  /* DOURADO VIBRANTE (Igual ao da Pizza) */
   .text-gradient-gold {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600;
   }
-
-  /* Gradiente Principal (Preto Luxo -> Cinza Chumbo) */
+  
+  /* Gradiente de Texto Principal */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-600 to-gray-800;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800;
   }
 
-  /* Badges e Ícones Dourados */
+  /* Badges e Ícones */
   .gradient-gold {
     @apply bg-gradient-to-br from-amber-400 to-amber-600 text-white border border-amber-300;
   }
 
-  /* Fundo dos Ícones (Preto Elegante) */
   .gradient-primary {
-    @apply bg-gradient-to-br from-gray-900 to-gray-700 text-white;
+    @apply bg-gradient-to-br from-slate-900 to-slate-700 text-white;
   }
 
-  /* Fundo Hero (Efeito de luz sutil no topo) */
+  /* Fundo Hero */
   .gradient-hero {
-    @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-50/50 via-white to-white;
+    @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-50/40 via-white to-white;
   }
   
-  /* Fundo das Seções (Degradê imperceptível para dar profundidade) */
   .gradient-section {
-    @apply bg-gradient-to-b from-white to-stone-50/50;
+    @apply bg-gradient-to-b from-white to-slate-50;
   }
 
-  /* SOMBRAS DE ALTA CONVERSÃO */
-  .shadow-soft {
-    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  }
-  .shadow-medium {
-    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-  }
-  .shadow-gold {
-    box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.6); /* Sombra Dourada */
-  }
+  /* Sombras */
+  .shadow-soft { box-shadow: 0 8px 30px rgba(0,0,0,0.04); }
+  .shadow-medium { box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .shadow-gold { box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.5); }
 }
 
-/* * ANIMAÇÕES OTIMIZADAS
- * Colocadas fora das layers para garantir carregamento
- */
-
-/* BOTÃO VERDE PULSANTE (O mais importante para conversão) */
-@keyframes pulse-green-custom {
-  0% {
-    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); /* Green-600 com transparência */
-    transform: scale(1);
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(22, 163, 74, 0);
-    transform: scale(1.02); /* Leve "respiro" */
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
-    transform: scale(1);
-  }
-}
-
-.animate-pulse-green {
-  animation: pulse-green-custom 2s infinite ease-in-out;
-}
-
-/* Flutuação Suave (Para imagens e cards) */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-
-/* Efeito Scanner Facial (Linha descendo) */
-@keyframes scan {
-  0% { top: 0%; opacity: 0; }
-  15% { opacity: 1; }
-  85% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-.animate-scan {
-  animation: scan 3s linear infinite;
-}
-
-/* Remove badge indesejado do Lovable */
-[data-lovable], .lovable-badge {
-  display: none !important;
-}
+/* Ocultar badge Lovable */
+[data-lovable], .lovable-badge { display: none !important; }

@@ -24,25 +24,32 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // FORÇANDO CORES REAIS PARA EVITAR ERROS DE VARIÁVEIS
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#0f172a", // Preto Azulado Luxuoso (Slate-900)
+          foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#f1f5f9", // Cinza Gelo (Slate-100)
+          foreground: "#0f172a",
+        },
+        muted: {
+          DEFAULT: "#f8fafc", // Slate-50
+          foreground: "#64748b", // Slate-500
+        },
+        accent: {
+          DEFAULT: "#f59e0b", // Amber-500 (Dourado Base)
+          foreground: "#0f172a",
+        },
+        // COR DOURADA ESPECÍFICA (A COR "PIZZA")
+        gold: {
+          DEFAULT: "#F59E0B", // Amber-500
+          light: "#FCD34D",   // Amber-300
+          dark: "#D97706",    // Amber-600
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -52,12 +59,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Adicionando explicitamente o Gold para garantir
-        gold: {
-          DEFAULT: "#F59E0B", // Amber-500
-          light: "#FCD34D", // Amber-300
-          dark: "#D97706", // Amber-600
-        }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -68,12 +69,40 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      // ANIMAÇÕES PERSONALIZADAS
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        scan: {
+          "0%": { top: "0%", opacity: "0" },
+          "15%": { opacity: "1" },
+          "85%": { opacity: "1" },
+          "100%": { top: "100%", opacity: "0" },
+        },
+        "pulse-green-custom": {
+          "0%": { boxShadow: "0 0 0 0 rgba(22, 163, 74, 0.7)", transform: "scale(1)" },
+          "70%": { boxShadow: "0 0 0 12px rgba(22, 163, 74, 0)", transform: "scale(1.02)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(22, 163, 74, 0)", transform: "scale(1)" },
+        },
+      },
       animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 5s ease-in-out infinite",
+        scan: "scan 3s linear infinite",
         "pulse-green": "pulse-green-custom 2s infinite ease-in-out",
-        "float": "float 5s ease-in-out infinite",
-        "scan": "scan 3s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
