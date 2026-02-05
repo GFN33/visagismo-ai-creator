@@ -1,65 +1,82 @@
 import { motion } from "framer-motion";
-import { AlertCircle, HelpCircle, Frown, Lightbulb, ArrowRight } from "lucide-react";
+import { AlertTriangle, Ban, XCircle, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 
 const problems = [
   {
-    icon: AlertCircle,
-    text: "Você já cortou o cabelo e se arrependeu depois?",
+    icon: Ban,
+    title: "O ciclo da tentativa e erro",
+    text: "Cortes que ficam ótimos na referência, mas não encaixam no seu rosto.",
   },
   {
-    icon: HelpCircle,
-    text: "Fica na dúvida se aquela cor ou estilo combina com você?",
+    icon: XCircle,
+    title: "Insegurança constante",
+    text: "Aquela sensação de olhar no espelho e sentir que 'algo está errado'.",
   },
   {
-    icon: Frown,
-    text: "Sente que poderia estar mais bonita(o), mas não sabe por onde começar?",
+    icon: AlertTriangle,
+    title: "Dinheiro desperdiçado",
+    text: "Salões caros, produtos de marca, e zero resultado na sua autoestima.",
   },
 ];
 
 const ProblemSection = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 xl:py-28 gradient-section">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          {/* Problem Side */}
+    <section className="py-20 lg:py-32 bg-[#020617] relative overflow-hidden">
+      {/* Luz ambiente de fundo (Vermelho sutil para perigo/dor) */}
+      <div className="absolute top-1/4 -left-64 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full pointer-events-none" />
+      
+      {/* Luz ambiente de fundo (Dourado para solução) */}
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          
+          {/* --- LADO DA DOR (PROBLEM) --- */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-              Você merece{" "}
-              <span className="text-gradient">parar de adivinhar</span>
-              <br />
-              e começar a acertar
+            <div className="inline-flex items-center gap-2 mb-6">
+               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+               <span className="text-xs font-bold text-red-400 tracking-widest uppercase">O Custo Invisível</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-50 mb-6 leading-tight">
+              Por que continuar <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                jogando na sorte?
+              </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
-              Sei como é frustrante gastar dinheiro em salão e sair insatisfeita(o). 
-              Ou comprar roupas que pareciam incríveis na loja, mas em você... não ficaram tão bem assim.
+            <p className="text-lg text-slate-400 mb-10 leading-relaxed">
+              Sua imagem é seu cartão de visita. Quando você ignora suas proporções naturais, transmite insegurança sem perceber. Não é sobre beleza, é sobre <strong className="text-slate-200">estratégia</strong>.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {problems.map((problem, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-destructive/5 border border-destructive/10"
+                  transition={{ duration: 0.4, delay: index * 0.15 }}
+                  className="flex items-start gap-4 p-5 rounded-xl bg-red-950/10 border border-red-500/10 hover:border-red-500/30 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center flex-shrink-0">
-                    <problem.icon className="w-5 h-5 text-destructive" />
+                  <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/20 transition-colors">
+                    <problem.icon className="w-5 h-5 text-red-400 group-hover:text-red-300" />
                   </div>
-                  <p className="text-foreground font-medium">{problem.text}</p>
+                  <div>
+                    <h4 className="text-slate-200 font-semibold mb-1 group-hover:text-red-200 transition-colors">{problem.title}</h4>
+                    <p className="text-slate-500 text-sm leading-relaxed">{problem.text}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Solution Side */}
+          {/* --- LADO DA SOLUÇÃO (BRIDGE) --- */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -67,56 +84,61 @@ const ProblemSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-medium border border-border">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 gradient-primary rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+            {/* Efeito Glow atrás do card */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 to-amber-700 rounded-[2.5rem] blur opacity-20" />
+
+            <div className="bg-slate-900/80 backdrop-blur-xl rounded-[2rem] p-8 sm:p-10 lg:p-12 border border-amber-500/20 relative overflow-hidden">
+              
+              {/* Badge Topo */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                    <Sparkles className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-100">Visagismo AI</h3>
+                    <p className="text-xs text-amber-400 font-medium uppercase tracking-wide">Tecnologia Premium</p>
+                  </div>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground">A Solução</h3>
+                {/* Visual Tech Element */}
+                <div className="hidden sm:flex gap-1">
+                   {[1,2,3].map(i => <div key={i} className="w-1 h-6 bg-slate-800 rounded-full" />)}
+                </div>
               </div>
 
-              <h4 className="text-lg sm:text-xl font-semibold text-gradient mb-3 sm:mb-4">
-                Agora você pode ter certeza antes de mudar
+              <h4 className="text-2xl font-bold text-white mb-4">
+                Pare de adivinhar. <br/> Comece a <span className="text-amber-400">Impressionar.</span>
               </h4>
 
-              <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
-                Com o Visagismo AI, você descobre exatamente o que valoriza 
-                seu rosto antes de ir ao salão. Nada de achismo — é ciência 
-                aplicada à sua beleza única.
+              <p className="text-slate-400 mb-8 leading-relaxed">
+                Descubra a matemática por trás da sua melhor versão. Nossa IA analisa 120 pontos do seu rosto para entregar um dossiê que nenhum profissional humano conseguiria fazer por este preço.
               </p>
 
-              <ul className="space-y-3 mb-8">
+              <div className="space-y-4 mb-10">
                 {[
-                  "Você vai saber exatamente qual corte valoriza seu rosto",
-                  "Descubra as cores que iluminam sua pele",
-                  "Receba um guia prático do SEU estilo ideal",
+                  "Harmonização baseada na Proporção Áurea",
+                  "Cortes validados para seu formato de rosto",
+                  "Guia de estilo que impõe respeito",
+                  "Economia vitalícia de erros no salão"
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full gradient-gold flex items-center justify-center flex-shrink-0">
-                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-foreground">{item}</span>
-                  </li>
+                  <div key={index} className="flex items-center gap-3 group">
+                    <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <span className="text-slate-300 font-medium group-hover:text-white transition-colors">{item}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
               <a
                 href="#pricing"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-amber-400 font-bold hover:text-amber-300 transition-all group border-b border-amber-500/30 pb-1 hover:border-amber-400"
               >
                 Descobrir minha imagem ideal
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
+              
+              {/* Textura de fundo do card */}
+              <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] pointer-events-none" />
             </div>
-
-            {/* Decorative elements */}
-            <div className="absolute -z-10 -top-4 -right-4 w-full h-full gradient-primary rounded-3xl opacity-10" />
           </motion.div>
         </div>
       </div>

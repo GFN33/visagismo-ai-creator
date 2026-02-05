@@ -5,51 +5,59 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "Como funciona o upload das fotos?",
-    answer: "Após a compra, você será direcionado(a) para um formulário seguro onde poderá fazer o upload das suas fotos (frontal e perfil) e responder a um breve questionário. É simples e rápido!"
+    question: "O relatório serve para o meu formato de rosto?",
+    answer: "Absolutamente. Nossa IA foi treinada com milhares de faces de todas as etnias e formatos. Ela identifica nuances que o olho humano muitas vezes perde, garantindo uma recomendação personalizada para VOCÊ, seja seu rosto redondo, quadrado, oval ou misto."
   },
   {
-    question: "Qual o prazo de entrega do relatório?",
-    answer: "Seu relatório personalizado será entregue em seu e-mail em até 24 horas após o envio das suas fotos. Nossa IA trabalha rápido para você não esperar!"
+    question: "Como envio minha foto? É complicado?",
+    answer: "Zero complicado. Você precisa apenas de uma selfie frontal bem iluminada (pode ser feita no celular mesmo). Após o pagamento, você recebe um link seguro para fazer o upload em segundos."
   },
   {
-    question: "Posso pedir revisão?",
-    answer: "Nosso relatório é gerado com alta precisão. Caso tenha dúvidas, nossa equipe de suporte está à disposição. Oferecemos garantia de satisfação de 7 dias!"
+    question: "E se eu não gostar do resultado?",
+    answer: "Nós garantimos a qualidade técnica da análise. Mas se por qualquer motivo você sentir que o material não agregou valor, você tem 7 dias de garantia incondicional. Basta um e-mail e devolvemos 100% do seu dinheiro."
   },
   {
-    question: "É seguro pagar pela Kiwify?",
-    answer: "Sim, a Kiwify é uma das maiores e mais seguras plataformas de pagamento do Brasil, garantindo a proteção total dos seus dados."
+    question: "O que exatamente eu vou receber?",
+    answer: "Você recebe um Dossiê Digital (PDF) completo contendo: Análise do seu formato de rosto, cortes de cabelo ideais (e os proibidos!), guia de barba/acessórios, e sua paleta de cores pessoal para roupas. É um manual completo da sua imagem."
   },
   {
-    question: "O que acontece com minhas fotos?",
-    answer: "Sua privacidade é nossa prioridade absoluta. Suas fotos são deletadas automaticamente de nossos servidores após a análise e entrega do relatório."
+    question: "Quanto tempo demora para chegar?",
+    answer: "Diferente de uma consultoria presencial que leva semanas, nossa IA processa seus dados rapidamente. Você receberá seu dossiê completo no e-mail cadastrado em até 24 horas após o envio das fotos."
   },
   {
-    question: "O relatório serve para homens e mulheres?",
-    answer: "Sim! O Visagismo AI possui algoritmos específicos para analisar traços masculinos e femininos, oferecendo recomendações personalizadas para todos os gêneros."
+    question: "É seguro pagar? Meus dados estão protegidos?",
+    answer: "Sim. Utilizamos a Kiwify para processar os pagamentos, que possui criptografia de ponta. Além disso, suas fotos são usadas estritamente para a análise e deletadas dos nossos servidores logo após a geração do relatório."
   }
 ];
 
 const FAQSection = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 xl:py-28 bg-background">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className="py-20 lg:py-32 bg-[#020617] relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-t from-slate-900 to-transparent opacity-50 pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
-            Ainda tem{" "}
-            <span className="text-gradient">alguma dúvida?</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-white/10 mb-6">
+            <HelpCircle className="w-4 h-4 text-amber-500" />
+            <span className="text-sm font-medium text-slate-300">Dúvidas Frequentes</span>
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-50 mb-4">
+            Ainda com <span className="text-amber-500">dúvidas?</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Aqui estão as perguntas que mais recebemos
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            Não deixe nada te impedir de alcançar sua melhor versão.
           </p>
         </motion.div>
 
@@ -65,12 +73,12 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card rounded-xl sm:rounded-2xl border border-border px-4 sm:px-6 shadow-soft hover:shadow-medium transition-shadow"
+                className="bg-slate-900/50 border border-white/5 rounded-2xl px-6 hover:border-amber-500/30 transition-colors data-[state=open]:border-amber-500/50 data-[state=open]:bg-slate-900"
               >
-                <AccordionTrigger className="text-left text-sm sm:text-base font-semibold text-foreground py-4 sm:py-5 hover:no-underline">
+                <AccordionTrigger className="text-left text-base sm:text-lg font-semibold text-slate-200 py-6 hover:text-amber-400 hover:no-underline transition-colors">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm sm:text-base text-muted-foreground pb-4 sm:pb-5 leading-relaxed">
+                <AccordionContent className="text-base text-slate-400 pb-6 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
