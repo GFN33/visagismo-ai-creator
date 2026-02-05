@@ -7,39 +7,41 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#020617] flex flex-col items-center justify-center pt-10 pb-20">
       
-      {/* --- BACKGROUND LUXURY --- */}
+      {/* --- BACKGROUND LUXURY (Luzes mais intensas para clarear) --- */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Luz Dourada Superior (Spotlight) */}
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-amber-500/10 blur-[120px] rounded-full opacity-60" />
+        {/* Luz Dourada Superior (Spotlight) - Aumentei a opacidade */}
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-amber-400/20 blur-[120px] rounded-full opacity-80" />
         
-        {/* Luzes Laterais Sutis */}
-        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-amber-600/5 blur-[100px] rounded-full" />
+        {/* Luzes Laterais */}
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-amber-500/10 blur-[100px] rounded-full" />
         <div className="absolute bottom-0 -right-40 w-96 h-96 bg-purple-900/10 blur-[120px] rounded-full" />
         
-        {/* Grid Sutil (Texture) */}
+        {/* Texture */}
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 flex flex-col items-center">
         
-        {/* --- 1. LOGO GRANDE --- */}
+        {/* --- 1. LOGO GRANDE (COM ILUMINAÇÃO TRASEIRA CORRIGIDA) --- */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-8 relative"
+          className="mb-8 relative p-8 rounded-full" // Adicionei padding para o glow respirar
         >
-          {/* Brilho atrás do Logo */}
-          <div className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full transform scale-150 opacity-40" />
+          {/* GLOW BRANCO/DOURADO ATRÁS DO LOGO PARA DAR CONTRASTE */}
+          {/* Mudei de 'bg-amber-500/20' para um gradiente radial forte */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.3)_0%,_rgba(245,158,11,0.1)_60%,_transparent_100%)] blur-2xl rounded-full transform scale-125 opacity-70 z-0" />
           
           <img 
             src="/imagens/logo.png" 
             alt="Visagismo AI Logo" 
-            className="relative z-10 h-32 md:h-40 w-auto object-contain drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]"
+            // Adicionei um drop-shadow branco sutil para destacar as bordas do logo
+            className="relative z-10 h-32 md:h-40 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
           />
         </motion.div>
 
-        {/* --- BARRA DE STATUS (Autoridade/Protocolo) --- */}
+        {/* --- BARRA DE STATUS --- */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,7 +71,7 @@ const HeroSection = () => {
               </span>
             </div>
 
-            {/* HEADLINE DE PODER */}
+            {/* HEADLINE */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-50 leading-[1.1] mb-6 font-display tracking-tight">
               Domine sua Imagem com <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 drop-shadow-sm">
@@ -77,12 +79,12 @@ const HeroSection = () => {
               </span>
             </h1>
 
-            {/* SUBHEADLINE ESTRATÉGICA */}
+            {/* SUBHEADLINE */}
             <p className="text-lg sm:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
               Deixe de lado o "achismo". Nossa IA decodifica 120 pontos faciais para entregar o manual definitivo da sua estética. Estratégia pura para quem não tem tempo a perder.
             </p>
 
-            {/* CTA LUXO DOURADO (Igual ao Pricing) */}
+            {/* CTA LUXO DOURADO */}
             <div className="flex flex-col w-full sm:w-auto gap-4">
               <Button 
                 size="xl" 
@@ -112,7 +114,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* --- 2. PROVA SOCIAL (MISTO HOMEM/MULHER) --- */}
+            {/* --- PROVA SOCIAL --- */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -120,12 +122,12 @@ const HeroSection = () => {
               className="flex items-center gap-4 mt-12 bg-slate-900/50 p-3 rounded-2xl border border-white/5 backdrop-blur-sm hover:border-amber-500/30 transition-colors"
             >
                <div className="flex -space-x-3">
-                {/* MIX DE AVATARES (Homens e Mulheres) */}
+                {/* MIX DE AVATARES */}
                 {[
-                  "https://i.pravatar.cc/100?img=5",  // Mulher
-                  "https://i.pravatar.cc/100?img=11", // Homem
-                  "https://i.pravatar.cc/100?img=9",  // Mulher
-                  "https://i.pravatar.cc/100?img=59"  // Homem
+                  "https://i.pravatar.cc/100?img=5",
+                  "https://i.pravatar.cc/100?img=11",
+                  "https://i.pravatar.cc/100?img=9",
+                  "https://i.pravatar.cc/100?img=59"
                 ].map((src, i) => (
                   <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-amber-500/20">
                     <img src={src} alt={`Cliente ${i}`} className="w-full h-full object-cover" />
@@ -145,25 +147,28 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* DIREITA: Visual High-Tech */}
+          {/* DIREITA: Visual High-Tech (IMAGEM HERO) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="relative perspective-1000 hidden lg:block"
+            // Mantido visível no mobile (block mt-12)
+            className="relative perspective-1000 block mt-12 lg:mt-0"
           >
-            {/* Efeito Glow Fundo */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-transparent blur-[80px] -z-10 rounded-full" />
+            {/* Efeito Glow Fundo (Aumentado para clarear a área da imagem também) */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-amber-400/30 to-transparent blur-[100px] -z-10 rounded-full opacity-60" />
 
             <div className="relative rounded-3xl overflow-hidden shadow-[0_0_50px_-10px_rgba(245,158,11,0.3)] border border-amber-500/20 bg-slate-900/80 backdrop-blur-md group">
+              
+              {/* Imagem Hero */}
               <img
-                src="https://placehold.co/600x700/0f172a/ffffff?text=Interface+Visagismo+Pro" 
-                alt="App Visagismo"
-                className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                src="/imagens/hero.png" 
+                alt="Interface Visagismo AI - Mapeamento Facial"
+                className="w-full h-auto object-cover opacity-95 transition-transform duration-700 group-hover:scale-105" // Aumentei a opacidade para 95%
               />
               
-              {/* Overlay Gradiente */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-90" />
+              {/* Overlay Gradiente (Mais suave para não escurecer tanto) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/80 via-transparent to-transparent opacity-80" />
               
               {/* Scanner Line Animation */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-amber-400/80 shadow-[0_0_20px_rgba(245,158,11,1)] animate-[scan_3s_linear_infinite]" />

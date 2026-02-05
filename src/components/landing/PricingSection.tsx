@@ -11,7 +11,6 @@ const features = [
   "Coloração Pessoal Digital (Sua Paleta)",
   "Harmonização de Traços e Proporção Áurea",
   "Acesso Vitalício ao Dossiê Premium",
-  "Bônus: Manual de Posicionamento de Imagem",
   "Prioridade na Fila de Processamento",
 ];
 
@@ -20,7 +19,6 @@ const PricingSection = () => {
   const [spots, setSpots] = useState(9);
 
   useEffect(() => {
-    // 1. Recupera ou Inicia as Vagas
     const storedSpots = localStorage.getItem("visagismo_spots");
     let currentSpots = storedSpots ? parseInt(storedSpots) : 9;
     
@@ -29,7 +27,6 @@ const PricingSection = () => {
     
     setSpots(currentSpots);
 
-    // 2. Função de Decaimento Aleatório
     const decreaseSpots = () => {
       // Para de cair quando chega em 3 (escassez máxima sem esgotar)
       if (currentSpots <= 3) return;
@@ -44,7 +41,6 @@ const PricingSection = () => {
     };
 
     // Define a primeira queda
-    // Se acabou de entrar (9 vagas), cai a primeira vez mais rápido (10s) para dar susto
     const initialDelay = currentSpots === 9 ? 10000 : 30000;
     let timeoutId = setTimeout(decreaseSpots, initialDelay);
 
@@ -67,7 +63,7 @@ const PricingSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          {/* ALERTA DE VAGAS LIMITADAS (COM DECAIMENTO) */}
+          {/* ALERTA DE VAGAS LIMITADAS */}
           <div className="inline-flex items-center gap-2 bg-amber-950/30 border border-amber-500/30 text-amber-400 px-5 py-2 rounded-full font-bold mb-6 shadow-[0_0_20px_rgba(245,158,11,0.15)] animate-pulse">
             <Users className="w-4 h-4" />
             <span className="tracking-wide text-sm">
@@ -102,7 +98,7 @@ const PricingSection = () => {
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-30 w-full text-center">
               <span className="px-6 py-2 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full text-white text-sm font-bold shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 w-max mx-auto uppercase tracking-wide border border-amber-400/50">
                 <Sparkles className="w-4 h-4 text-yellow-100" />
-                Dossiê Completo + Bônus
+                Dossiê Completo 
               </span>
             </div>
 
@@ -111,17 +107,19 @@ const PricingSection = () => {
               
               <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.02]" />
 
-              {/* Preço */}
+              {/* Preço - AJUSTADO: Âncora 597 / Preço 397 */}
               <div className="text-center mb-8 mt-4 relative">
                 <p className="text-slate-500 font-medium mb-1 line-through text-sm">
-                  De R$ 497,00 por
+                  De R$ 597,00 por
                 </p>
                 <div className="flex flex-col items-center justify-center">
                   <span className="text-5xl lg:text-6xl font-bold text-slate-50 tracking-tight">
-                    R$ 297<span className="text-2xl text-slate-400">,00</span>
+                    R$ 397<span className="text-2xl text-slate-400">,00</span>
                   </span>
-                  <p className="text-amber-400/90 font-medium mt-3 text-sm tracking-wide">
-                    Pagamento Único • Acesso Vitalício
+                  
+                  {/* PREÇO PARCELADO */}
+                  <p className="text-amber-400 font-medium mt-3 text-sm bg-amber-950/30 px-3 py-1 rounded-full border border-amber-500/20">
+                    À vista ou 12x de R$ 41,06
                   </p>
                 </div>
               </div>
@@ -142,7 +140,7 @@ const PricingSection = () => {
                 ))}
               </div>
 
-              {/* --- BOTÃO DE AÇÃO DOURADO (MID-TICKET) --- */}
+              {/* --- BOTÃO DE AÇÃO DOURADO --- */}
               <Button 
                 size="xl" 
                 className="w-full group text-lg h-16 
@@ -153,7 +151,7 @@ const PricingSection = () => {
                 asChild
               >
                 <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                  {/* Brilho (Shimmer) Passante */}
+                  {/* Brilho Passante */}
                   <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/50 to-transparent z-10" />
                   
                   <span className="relative z-20 flex items-center gap-2">
