@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Brain, FileText, Crown, Sparkles } from "lucide-react";
 
+// --- DEFINIÇÕES DE DADOS E ANIMAÇÃO (FORA DO COMPONENTE) ---
+// Isso evita erros de recriação e leitura da variável variants
+
 const features = [
   {
     icon: <Brain className="w-8 h-8 text-amber-400" />,
@@ -19,24 +22,28 @@ const features = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 30, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+// --- COMPONENTE PRINCIPAL ---
+
 const BenefitsSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.3 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
     <section className="py-24 bg-[#020617] relative overflow-hidden">
       {/* Luzes de fundo */}

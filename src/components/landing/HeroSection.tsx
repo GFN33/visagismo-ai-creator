@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight, CheckCircle, Star } from "lucide-react";
+import { Sparkles, ArrowRight, CheckCircle, Star, Lock, ScanFace } from "lucide-react";
 import { KIWIFY_CHECKOUT_URL } from "@/lib/config";
 
 const HeroSection = () => {
@@ -22,7 +22,7 @@ const HeroSection = () => {
 
       <div className="container relative z-10 mx-auto px-4 flex flex-col items-center">
         
-        {/* --- 1. A "CAPA" (LOGO GRANDE) --- */}
+        {/* --- 1. LOGO GRANDE --- */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -39,19 +39,16 @@ const HeroSection = () => {
           />
         </motion.div>
 
-        {/* --- BARRA DE STATUS (Escassez/Novidade) --- */}
+        {/* --- BARRA DE STATUS (Autoridade/Protocolo) --- */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex items-center gap-2 text-sm text-amber-300 bg-amber-950/30 px-5 py-1.5 rounded-full border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.15)] mb-10 backdrop-blur-md"
+          className="flex items-center gap-2 text-sm text-amber-200 bg-amber-950/40 px-5 py-1.5 rounded-full border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.15)] mb-10 backdrop-blur-md"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-          </span>
+          <Lock className="w-3 h-3 text-amber-400" />
           <span className="font-medium tracking-widest uppercase text-[10px] md:text-xs">
-            Tecnologia 2.0 Disponível
+            Protocolo de Análise Avançada
           </span>
         </motion.div>
 
@@ -66,47 +63,51 @@ const HeroSection = () => {
             className="text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             <div className="inline-flex items-center gap-2 mb-6">
-              <Sparkles className="w-5 h-5 text-amber-400 animate-pulse" />
+              <ScanFace className="w-5 h-5 text-amber-400 animate-pulse" />
               <span className="text-sm font-medium text-amber-200/80 tracking-wide uppercase">
-                O Segredo da Imagem Harmônica
+                Não é sorte, é matemática
               </span>
             </div>
 
+            {/* HEADLINE DE PODER */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-50 leading-[1.1] mb-6 font-display tracking-tight">
-              Sua Melhor Versão <br/>
+              Domine sua Imagem com <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 drop-shadow-sm">
-                Revelada com IA.
+                Precisão Algorítmica.
               </span>
             </h1>
 
+            {/* SUBHEADLINE ESTRATÉGICA */}
             <p className="text-lg sm:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
-              Elimine a dúvida do "será que combina comigo?". Nossa IA analisa 120 pontos do seu rosto e entrega o manual exato para realçar sua beleza natural.
+              Deixe de lado o "achismo". Nossa IA decodifica 120 pontos faciais para entregar o manual definitivo da sua estética. Estratégia pura para quem não tem tempo a perder.
             </p>
 
-            {/* CTA LUXO */}
+            {/* CTA LUXO DOURADO (Igual ao Pricing) */}
             <div className="flex flex-col w-full sm:w-auto gap-4">
               <Button 
                 size="xl" 
-                className="group relative w-full sm:w-auto h-16 px-10 text-lg bg-green-600 hover:bg-green-700 text-white 
-                shadow-[0_0_40px_-10px_rgba(34,197,94,0.6)] hover:shadow-[0_0_60px_-10px_rgba(34,197,94,0.8)] 
-                border-t border-white/20 transition-all duration-300 overflow-hidden"
+                className="group relative w-full sm:w-auto h-16 px-10 text-lg 
+                bg-gradient-to-b from-amber-300 to-amber-500 hover:from-amber-200 hover:to-amber-400 
+                text-slate-900 font-bold tracking-wide
+                shadow-[0_0_30px_-5px_rgba(245,158,11,0.5)] hover:shadow-[0_0_40px_-5px_rgba(245,158,11,0.7)]
+                border border-amber-300/50 active:scale-[0.98] transition-all duration-200 overflow-hidden"
                 asChild
               >
                 <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
                   {/* Brilho Passante no Botão */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
                   
-                  <span className="font-bold tracking-wide">QUERO MINHA ANÁLISE</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <span className="font-bold tracking-wide relative z-10">SOLICITAR MINHA ANÁLISE</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
                 </a>
               </Button>
               
               <div className="flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-500 font-medium">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-green-500" /> Entrega em até 24h
+                  <CheckCircle className="w-3.5 h-3.5 text-amber-500" /> Entrega em até 24h
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-green-500" /> +10k Análises Feitas
+                  <CheckCircle className="w-3.5 h-3.5 text-amber-500" /> Metodologia Comprovada
                 </span>
               </div>
             </div>
@@ -138,7 +139,7 @@ const HeroSection = () => {
                   ))}
                 </div>
                 <p className="text-xs text-slate-400 mt-1">
-                  Mais de <strong className="text-slate-200">1.000 aprovações</strong>
+                  A escolha de <strong className="text-slate-200">1.000+ profissionais</strong>
                 </p>
               </div>
             </motion.div>
@@ -156,7 +157,7 @@ const HeroSection = () => {
 
             <div className="relative rounded-3xl overflow-hidden shadow-[0_0_50px_-10px_rgba(245,158,11,0.3)] border border-amber-500/20 bg-slate-900/80 backdrop-blur-md group">
               <img
-                src="https://placehold.co/600x700/0f172a/ffffff?text=Interface+Visagismo+AI" 
+                src="https://placehold.co/600x700/0f172a/ffffff?text=Interface+Visagismo+Pro" 
                 alt="App Visagismo"
                 className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
               />
@@ -177,9 +178,9 @@ const HeroSection = () => {
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-xs font-bold text-amber-200 uppercase tracking-widest">Análise Concluída</span>
+                    <span className="text-xs font-bold text-amber-200 uppercase tracking-widest">Mapeamento Concluído</span>
                   </div>
-                  <span className="text-xs text-slate-500">120 pontos</span>
+                  <span className="text-xs text-slate-500">Precisão: 99.8%</span>
                 </div>
                 <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-gradient-to-r from-amber-400 to-amber-600 w-full animate-[width_1s_ease-out]" />
