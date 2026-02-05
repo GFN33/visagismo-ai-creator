@@ -1,150 +1,117 @@
 import { motion } from "framer-motion";
-import { 
-  Scan, 
-  Scissors, 
-  Palette, 
-  Sparkles, 
-  User, 
-  CheckCircle2,
-  ArrowRight
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { KIWIFY_CHECKOUT_URL } from "@/lib/config";
+import { Brain, FileText, Crown, Sparkles } from "lucide-react";
 
-const benefits = [
+const features = [
   {
-    icon: Scan,
-    title: "Seu Rosto Mapeado",
-    description: "Você vai entender por que alguns cortes funcionam e outros não",
+    icon: <Brain className="w-8 h-8 text-amber-400" />,
+    title: "Tecnologia de Precisão Algorítmica",
+    description: "Esqueça o 'achismo'. Nossa IA mapeia 120 pontos geométricos do seu rosto para entregar uma análise fundamentada em dados, não em opiniões.",
   },
   {
-    icon: Scissors,
-    title: "O Corte Certo pra Você",
-    description: "Chegue no salão sabendo exatamente o que pedir",
+    icon: <FileText className="w-8 h-8 text-amber-400" />,
+    title: "Dossiê Estratégico Executivo",
+    description: "Muito além de um PDF. Um manual de instruções da sua imagem. Cortes, barbas e óculos alinhados milimetricamente aos seus objetivos.",
   },
   {
-    icon: Palette,
-    title: "Suas Cores Ideais",
-    description: "Descubra as cores que fazem você brilhar",
-  },
-  {
-    icon: Sparkles,
-    title: "Make que Valoriza",
-    description: "Técnicas simples para destacar sua beleza natural",
-  },
-  {
-    icon: User,
-    title: "Seu Estilo Único",
-    description: "Encontre o visual que é a sua cara — de verdade",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Próximos Passos",
-    description: "Um plano prático para você começar sua transformação",
+    icon: <Crown className="w-8 h-8 text-amber-400" />,
+    title: "Ativo de Valor Vitalício",
+    description: "Um investimento único para um conhecimento permanente. Domine as regras do seu jogo visual para sempre e pare de gastar dinheiro à toa.",
   },
 ];
 
 const BenefitsSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section className="py-20 lg:py-28 gradient-section">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-24 bg-[#020617] relative overflow-hidden">
+      {/* Luzes de fundo */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-700/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.02]" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative order-2 lg:order-1"
+            className="inline-flex items-center gap-2 text-amber-400 mb-4"
           >
-            <div className="relative">
-              <img
-                src="https://placehold.co/600x400"
-                alt="Relatório Visagismo AI"
-                className="w-full max-w-md mx-auto rounded-2xl shadow-medium"
-              />
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -top-4 -right-4 lg:right-0 bg-card rounded-xl p-3 shadow-soft border border-border"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 gradient-gold rounded-lg flex items-center justify-center">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <span className="text-sm font-semibold text-foreground">PDF Premium</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="absolute -bottom-4 -left-4 lg:left-0 bg-card rounded-xl p-3 shadow-soft border border-border"
-              >
-                <p className="text-sm font-medium text-foreground">📄 +30 páginas</p>
-              </motion.div>
-            </div>
+             <Sparkles className="w-5 h-5" />
+             <span className="text-sm font-medium uppercase tracking-wider">O Protocolo Visagismo AI</span>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+          
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="order-1 lg:order-2"
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-4xl font-bold text-slate-50 mb-6 font-display"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Olha só o que você vai{" "}
-              <span className="text-gradient">receber</span>
-              <br />
-              no seu relatório:
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Mais de 30 páginas feitas especialmente para você, com tudo que 
-              precisa saber para transformar sua imagem.
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border hover:shadow-soft transition-shadow"
-                >
-                  <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">
-                      {benefit.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {benefit.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* BOTÃO VERDE */}
-            <Button 
-              size="lg" 
-              className="group bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-500/20 animate-pulse-green"
-              asChild
-            >
-              <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
-                Quero Descobrir Minha Imagem Ideal
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
-          </motion.div>
+            Não é Mágica. É a <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">Ciência da Sua Melhor Versão.</span>
+          </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-400 leading-relaxed"
+          >
+            Transformamos a complexidade dos seus traços em um plano de ação claro. 
+            Receba o conhecimento de uma consultoria de alto padrão, condensado e pronto para aplicar.
+          </motion.p>
         </div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-8 relative"
+        >
+          {/* Linha de conexão (Desktop) */}
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent hidden md:block -z-10"></div>
+
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="group bg-gradient-to-b from-slate-900/80 to-slate-950/90 p-8 rounded-[2rem] border border-amber-500/10 hover:border-amber-500/40 transition-all duration-500 shadow-[0_0_30px_-15px_rgba(0,0,0,1)] hover:shadow-[0_0_50px_-15px_rgba(245,158,11,0.2)] backdrop-blur-sm relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/0 via-amber-500/0 to-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+              <div className="mb-6 relative">
+                <div className="absolute inset-0 bg-amber-500/20 blur-2xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
+                <div className="relative w-16 h-16 rounded-2xl bg-slate-800/50 flex items-center justify-center border border-amber-500/20 group-hover:border-amber-500/60 transition-colors shadow-lg shadow-amber-500/5">
+                  {feature.icon}
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-bold text-slate-100 mb-4 group-hover:text-amber-200 transition-colors">
+                {feature.title}
+              </h3>
+              <p className="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

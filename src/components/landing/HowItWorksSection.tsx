@@ -18,8 +18,8 @@ const steps = [
   },
   {
     icon: BookOpen,
-    title: "3. Receba o Dossiê",
-    description: "Em poucos minutos, seu manual personalizado chega no seu e-mail com todas as recomendações.",
+    title: "3. Receba a Análise",
+    description: "Em até 24h, seu relatório personalizado chega no seu e-mail com todas as recomendações.",
     color: "from-amber-600 to-amber-800",
   },
 ];

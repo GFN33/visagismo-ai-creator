@@ -103,7 +103,7 @@ const HeroSection = () => {
               
               <div className="flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-500 font-medium">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-green-500" /> Entrega Imediata
+                  <CheckCircle className="w-3.5 h-3.5 text-green-500" /> Entrega em até 24h
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle className="w-3.5 h-3.5 text-green-500" /> +10k Análises Feitas
