@@ -19,45 +19,49 @@ export default {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        // PALETA LUXO "BLACK & GOLD" (Hardcoded para não falhar)
+        // --- CORES CHUMBADAS (HARDCODED) PARA O VISUAL BLACK & GOLD ---
+        border: "#1e293b", // Borda escura sutil
+        input: "#1e293b",
+        ring: "#F59E0B",   // Anel de foco Dourado
+        
+        // FUNDO PRETO LUXO
+        background: "#020617", // Slate-950 (Preto profundo, quase azulado)
+        foreground: "#f8fafc", // Texto Branco Gelo
+
+        // PRETO ELEGANTE
         primary: {
-          DEFAULT: "#0f172a", // Preto Azulado Profundo (Slate-900)
-          foreground: "#ffffff",
+          DEFAULT: "#f8fafc", 
+          foreground: "#020617", 
         },
         secondary: {
-          DEFAULT: "#f1f5f9", // Cinza Gelo (Slate-100)
-          foreground: "#0f172a",
-        },
-        muted: {
-          DEFAULT: "#f8fafc", // Slate-50
-          foreground: "#64748b", // Slate-500
+          DEFAULT: "#1e293b", 
+          foreground: "#f8fafc",
         },
         accent: {
-          DEFAULT: "#f59e0b", // Amber-500 (Dourado Base)
-          foreground: "#0f172a",
+          DEFAULT: "#F59E0B", // Dourado
+          foreground: "#000000",
         },
-        // COR DOURADA ESPECÍFICA (A COR "PIZZA" QUE VOCÊ GOSTOU)
+        muted: {
+          DEFAULT: "#0f172a", 
+          foreground: "#94a3b8",
+        },
+        // COR DOURADA EXTRA
         gold: {
-          DEFAULT: "#F59E0B", // Amber-500
-          light: "#FCD34D",   // Amber-300
-          dark: "#D97706",    // Amber-600
+          DEFAULT: "#F59E0B", 
+          light: "#FCD34D",
+          dark: "#D97706",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "#ef4444",
+          foreground: "#ffffff",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "#020617",
+          foreground: "#f8fafc",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "#0f172a", 
+          foreground: "#f8fafc",
         },
       },
       fontFamily: {
@@ -69,7 +73,6 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      // ANIMAÇÕES PERSONALIZADAS
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -89,11 +92,10 @@ export default {
           "85%": { opacity: "1" },
           "100%": { top: "100%", opacity: "0" },
         },
-        // ANIMAÇÃO DO BOTÃO VERDE PULSANTE
         "pulse-green-custom": {
-          "0%": { boxShadow: "0 0 0 0 rgba(22, 163, 74, 0.7)", transform: "scale(1)" },
-          "70%": { boxShadow: "0 0 0 12px rgba(22, 163, 74, 0)", transform: "scale(1.02)" },
-          "100%": { boxShadow: "0 0 0 0 rgba(22, 163, 74, 0)", transform: "scale(1)" },
+          "0%": { boxShadow: "0 0 0 0 rgba(34, 197, 94, 0.7)", transform: "scale(1)" },
+          "70%": { boxShadow: "0 0 0 12px rgba(34, 197, 94, 0)", transform: "scale(1.02)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(34, 197, 94, 0)", transform: "scale(1)" },
         },
       },
       animation: {
