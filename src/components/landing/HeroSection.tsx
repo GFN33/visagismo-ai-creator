@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight, CheckCircle, Play } from "lucide-react";
 import { KIWIFY_CHECKOUT_URL } from "@/lib/config";
 
 const HeroSection = () => {
@@ -18,7 +18,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center justify-between mb-16"
+          className="flex items-center justify-between mb-12"
         >
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
@@ -28,9 +28,14 @@ const HeroSection = () => {
               Visagismo <span className="text-gradient">AI</span>
             </span>
           </div>
-          <Button variant="outline-hero" size="sm" className="hidden sm:flex">
-            Falar com Especialista
-          </Button>
+          {/* Banner de Urgência Sutil */}
+          <div className="hidden sm:flex items-center gap-2 text-sm text-amber-600 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+            </span>
+            Oferta por tempo limitado
+          </div>
         </motion.nav>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -49,39 +54,38 @@ const HeroSection = () => {
             >
               <Sparkles className="w-4 h-4 text-accent" />
               <span className="text-sm font-medium text-accent-foreground">
-                +2.500 pessoas já descobriram sua melhor versão
+                IA treinada com os maiores visagistas do mundo
               </span>
             </motion.div>
 
+            {/* HEADLINE OTIMIZADA PARA CONVERSÃO */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Descubra a Imagem que{" "}
-              <span className="text-gradient">Transmite sua Verdadeira Essência</span>
+              Pare de errar no corte. <br/>Descubra sua beleza em
+              <span className="text-gradient block mt-2">Segundos com IA.</span>
             </h1>
 
+            {/* COPY CORRIGIDA (SEM "MARIA") E MAIS PERSUASIVA */}
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Maria, imagine a confiança de se olhar no espelho e ver um visual que finalmente harmoniza com quem você é. Use a precisão da IA para encontrar seu corte, cor e estilo ideal em 24h.
+              Imagine a confiança de se olhar no espelho e ter certeza que seu visual é perfeito para você. Nossa Inteligência Artificial analisa 120 pontos do seu rosto para revelar seu corte, cor e estilo ideal.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <div className="flex flex-col items-center lg:items-start">
+              <div className="flex flex-col items-center lg:items-start w-full sm:w-auto">
                 <Button 
                   variant="hero" 
                   size="xl" 
-                  className="group"
+                  className="group w-full sm:w-auto shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300"
                   asChild
                 >
                   <a href={KIWIFY_CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
-                    Quero Minha Transformação Agora
+                    Quero Minha Análise Agora
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
-                <p className="text-xs text-muted-foreground mt-2 text-center lg:text-left">
-                  ⚡ Oferta por tempo limitado: Adicione consultoria express no checkout
+                <p className="text-xs text-muted-foreground mt-3 text-center lg:text-left flex items-center justify-center lg:justify-start gap-1">
+                  <CheckCircle className="w-3 h-3 text-green-500" /> Compra segura e entrega em 24h
                 </p>
               </div>
-              <Button variant="ghost" size="xl" className="text-muted-foreground">
-                Como Funciona?
-              </Button>
             </div>
 
             {/* Trust badges */}
@@ -95,17 +99,17 @@ const HeroSection = () => {
                 {[1, 2, 3, 4].map((i) => (
                   <img
                     key={i}
-                    src={`https://placehold.co/40x40`}
+                    src={`https://placehold.co/40x40`} // IMPORTANTE: Substituir por fotos reais de clientes felizes
                     alt={`Cliente ${i}`}
-                    className="w-10 h-10 rounded-full border-2 border-background object-cover"
+                    className="w-10 h-10 rounded-full border-2 border-background object-cover grayscale hover:grayscale-0 transition-all"
                   />
                 ))}
               </div>
               <div className="text-left">
-                <p className="text-sm font-semibold text-foreground">+2.500 clientes</p>
+                <p className="text-sm font-semibold text-foreground">+2.500 rostos analisados</p>
                 <div className="flex items-center gap-1">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <span key={i} className="text-accent text-sm">★</span>
+                    <StarFilled key={i} />
                   ))}
                   <span className="text-xs text-muted-foreground ml-1">4.9/5</span>
                 </div>
@@ -113,47 +117,42 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Visual */}
+          {/* Right Visual - SUGESTÃO: USAR UM "ANTES E DEPOIS" AQUI */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-medium">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
+              {/* IMAGEM: Tente colocar um GIF ou Vídeo mostrando o "Scanner" da IA passando no rosto */}
               <img
-                src="https://placehold.co/600x400"
+                src="https://placehold.co/600x400" 
                 alt="Análise facial com IA"
                 className="w-full h-auto object-cover animate-float"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              
+              {/* Overlay de "Scanning" para dar ar tecnológico */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-primary/50 shadow-[0_0_20px_rgba(var(--primary),0.5)] animate-scan" />
             </div>
             
-            {/* Floating cards */}
+            {/* Floating cards - Prova de Valor */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1 }}
-              className="absolute -bottom-6 -left-6 bg-card rounded-2xl p-4 shadow-soft border border-border"
+              className="absolute -bottom-6 -left-6 bg-card/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/10"
             >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 gradient-gold rounded-xl flex items-center justify-center">
-                  <Sparkles className="w-6 h-6" />
+                  <Sparkles className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Análise Completa</p>
-                  <p className="text-sm text-muted-foreground">Em minutos</p>
+                  <p className="font-bold text-foreground">Relatório Premium</p>
+                  <p className="text-xs text-muted-foreground">+30 Páginas Personalizadas</p>
                 </div>
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-              className="absolute -top-4 -right-4 bg-card rounded-2xl px-4 py-3 shadow-soft border border-border"
-            >
-              <p className="text-sm font-medium text-foreground">🎯 97% Precisão</p>
             </motion.div>
           </motion.div>
         </div>
@@ -161,5 +160,12 @@ const HeroSection = () => {
     </section>
   );
 };
+
+// Componente auxiliar para estrelas
+const StarFilled = () => (
+  <svg className="w-3 h-3 text-amber-400 fill-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+);
 
 export default HeroSection;

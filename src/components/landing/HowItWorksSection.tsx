@@ -24,8 +24,8 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 lg:py-20 xl:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,9 +47,9 @@ const HowItWorksSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative">
           {/* Connection line */}
-          <div className="hidden md:block absolute top-24 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-20" />
+          <div className="hidden lg:block absolute top-24 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-20" />
 
           {steps.map((step, index) => (
             <motion.div
@@ -60,23 +60,23 @@ const HowItWorksSection = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="relative"
             >
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border hover:shadow-medium transition-shadow h-full">
+              <div className="bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft border border-border hover:shadow-medium transition-shadow h-full">
                 {/* Step number */}
-                <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-bold shadow-primary">
+                <div className="absolute -top-3 sm:-top-4 -left-3 sm:-left-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-bold shadow-primary text-sm sm:text-base">
                   {index + 1}
                 </div>
 
                 {/* Icon */}
                 <div
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-6`}
+                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-4 sm:mb-6`}
                 >
-                  <step.icon className="w-8 h-8 text-primary-foreground" />
+                  <step.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-foreground" />
                 </div>
 
-                <h3 className="text-xl font-bold text-foreground mb-3">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground">{step.description}</p>
+                <p className="text-sm sm:text-base text-muted-foreground">{step.description}</p>
               </div>
             </motion.div>
           ))}

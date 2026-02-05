@@ -30,8 +30,8 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 lg:py-20 xl:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -58,7 +58,7 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative"
             >
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border h-full hover:shadow-medium transition-shadow">
+              <div className="bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-soft border border-border h-full hover:shadow-medium transition-shadow">
                 {/* Quote icon */}
                 <div className="absolute -top-3 right-8">
                   <div className="w-10 h-10 gradient-gold rounded-xl flex items-center justify-center shadow-gold">
@@ -108,7 +108,7 @@ const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
         >
           {[
             { value: "2.500+", label: "Clientes Satisfeitos" },

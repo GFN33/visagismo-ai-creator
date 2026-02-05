@@ -18,9 +18,9 @@ const problems = [
 
 const ProblemSection = () => {
   return (
-    <section className="py-20 lg:py-28 gradient-section">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-12 sm:py-16 lg:py-20 xl:py-28 gradient-section">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Problem Side */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -28,14 +28,14 @@ const ProblemSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
               Você merece{" "}
               <span className="text-gradient">parar de adivinhar</span>
               <br />
               e começar a acertar
             </h2>
 
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
               Sei como é frustrante gastar dinheiro em salão e sair insatisfeita(o). 
               Ou comprar roupas que pareciam incríveis na loja, mas em você... não ficaram tão bem assim.
             </p>
@@ -67,19 +67,19 @@ const ProblemSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-card rounded-3xl p-8 lg:p-10 shadow-medium border border-border">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center">
-                  <Lightbulb className="w-6 h-6 text-primary-foreground" />
+            <div className="bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-medium border border-border">
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 gradient-primary rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">A Solução</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">A Solução</h3>
               </div>
 
-              <h4 className="text-xl font-semibold text-gradient mb-4">
+              <h4 className="text-lg sm:text-xl font-semibold text-gradient mb-3 sm:mb-4">
                 Agora você pode ter certeza antes de mudar
               </h4>
 
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
                 Com o Visagismo AI, você descobre exatamente o que valoriza 
                 seu rosto antes de ir ao salão. Nada de achismo — é ciência 
                 aplicada à sua beleza única.

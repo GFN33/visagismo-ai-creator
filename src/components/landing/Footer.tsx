@@ -3,8 +3,8 @@ import { Sparkles, Mail, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-12 gradient-section border-t border-border">
-      <div className="container mx-auto px-4">
+    <footer className="py-8 sm:py-12 gradient-section border-t border-border">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">
               Termos de Uso
             </a>
