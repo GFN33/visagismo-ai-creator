@@ -155,7 +155,7 @@ const PricingSection = () => {
                   <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/50 to-transparent z-10" />
                   
                   <span className="relative z-20 flex items-center gap-2">
-                    GARANTIR MINHA VAGA
+                    GARANTIR MINHA ANÁLISE
                     <ArrowRight className="w-5 h-5 text-slate-900 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </a>
