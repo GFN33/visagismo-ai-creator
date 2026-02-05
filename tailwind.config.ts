@@ -24,9 +24,9 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        // FORÇANDO CORES REAIS PARA EVITAR ERROS DE VARIÁVEIS
+        // PALETA LUXO "BLACK & GOLD" (Hardcoded para não falhar)
         primary: {
-          DEFAULT: "#0f172a", // Preto Azulado Luxuoso (Slate-900)
+          DEFAULT: "#0f172a", // Preto Azulado Profundo (Slate-900)
           foreground: "#ffffff",
         },
         secondary: {
@@ -41,7 +41,7 @@ export default {
           DEFAULT: "#f59e0b", // Amber-500 (Dourado Base)
           foreground: "#0f172a",
         },
-        // COR DOURADA ESPECÍFICA (A COR "PIZZA")
+        // COR DOURADA ESPECÍFICA (A COR "PIZZA" QUE VOCÊ GOSTOU)
         gold: {
           DEFAULT: "#F59E0B", // Amber-500
           light: "#FCD34D",   // Amber-300
@@ -89,6 +89,7 @@ export default {
           "85%": { opacity: "1" },
           "100%": { top: "100%", opacity: "0" },
         },
+        // ANIMAÇÃO DO BOTÃO VERDE PULSANTE
         "pulse-green-custom": {
           "0%": { boxShadow: "0 0 0 0 rgba(22, 163, 74, 0.7)", transform: "scale(1)" },
           "70%": { boxShadow: "0 0 0 12px rgba(22, 163, 74, 0)", transform: "scale(1.02)" },
