@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Scan, Cpu, BarChart3, ShieldCheck, CheckCircle2, Camera } from "lucide-react";
+import { ArrowRight, Scan, Cpu, BarChart3, ShieldCheck, CheckCircle2, Camera, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TALLY_FORM_URL } from "@/lib/config";
 
@@ -39,7 +39,7 @@ const ThankYou = () => {
         >
           Próximo Passo: <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
-            Envie sua Foto.
+            Envie suas Fotos.
           </span>
         </motion.h1>
 
@@ -49,16 +49,31 @@ const ThankYou = () => {
           transition={{ delay: 0.3 }}
           className="text-slate-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed"
         >
-          Para iniciar o escaneamento dos seus <strong>120 pontos nodais</strong>, precisamos que você envie sua foto agora através do nosso formulário seguro. Devido à complexidade, o sistema levará cerca de <strong>24h</strong> para gerar seu relatório.
+          Para iniciar o escaneamento dos seus <strong>120 pontos nodais</strong>, precisamos que você envie suas fotos agora. Baixe seu guia de calibragem abaixo e depois inicie o escaneamento.
         </motion.p>
 
-        {/* --- BOTÃO DE AÇÃO PARA O TALLY --- */}
+        {/* --- ÁREA DE AÇÃO (DOWNLOAD + TALLY) --- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="mb-16"
+          className="mb-16 flex flex-col gap-4 items-center"
         >
+          {/* BOTÃO 1: DOWNLOAD DO BÔNUS (BRANCO/SUTIL) */}
+          <Button 
+            size="lg" 
+            variant="outline"
+            className="w-full sm:w-auto px-8 text-slate-300 border-white/10 bg-white/5 hover:bg-white/10 hover:text-white transition-all"
+            asChild
+          >
+            {/* LINK ATUALIZADO COM O NOVO NOME DO PDF */}
+            <a href="/Guia_Subtom_VisagismoAI.pdf" download="Guia_Subtom_VisagismoAI.pdf" className="flex items-center justify-center gap-3">
+              <Download className="w-5 h-5 text-amber-400" />
+              <span>1. BAIXAR GUIA DE SUBTOM (BÔNUS)</span>
+            </a>
+          </Button>
+
+          {/* BOTÃO 2: TALLY (DOURADO PRINCIPAL) */}
           <Button 
             size="xl" 
             className="group relative w-full sm:w-auto h-20 px-12 text-xl 
@@ -70,7 +85,7 @@ const ThankYou = () => {
           >
             <a href={TALLY_FORM_URL} className="flex items-center justify-center gap-4">
               <Camera className="w-6 h-6 animate-pulse" />
-              <span>INICIAR ESCANEAMENTO BIOMÉTRICO</span>
+              <span>2. INICIAR ESCANEAMENTO BIOMÉTRICO</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </a>
           </Button>
