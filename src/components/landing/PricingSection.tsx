@@ -78,7 +78,7 @@ const PricingSection = () => {
             </span>
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Uma consultoria presencial de visagismo custa em média R$ 2.500,00. <br/>
+            Uma consultoria presencial de visagismo custa em média R$ 1.000,00. <br/>
             Obtenha a mesma precisão técnica, instantaneamente, por uma fração do valor.
           </p>
         </motion.div>
@@ -110,16 +110,16 @@ const PricingSection = () => {
               {/* Preço - AJUSTADO: Âncora 597 / Preço 397 */}
               <div className="text-center mb-8 mt-4 relative">
                 <p className="text-slate-500 font-medium mb-1 line-through text-sm">
-                  De R$ 597,00 por
+                  De R$ 397,00 por
                 </p>
                 <div className="flex flex-col items-center justify-center">
                   <span className="text-5xl lg:text-6xl font-bold text-slate-50 tracking-tight">
-                    R$ 397<span className="text-2xl text-slate-400">,00</span>
+                    R$ 197<span className="text-2xl text-slate-400">,00</span>
                   </span>
                   
                   {/* PREÇO PARCELADO */}
                   <p className="text-amber-400 font-medium mt-3 text-sm bg-amber-950/30 px-3 py-1 rounded-full border border-amber-500/20">
-                    À vista ou 12x de R$ 41,06
+                    À vista ou 12x de R$ 20,37
                   </p>
                 </div>
               </div>
