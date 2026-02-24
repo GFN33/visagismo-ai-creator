@@ -22,24 +22,23 @@ const HeroSection = () => {
 
       <div className="container relative z-10 mx-auto px-4 flex flex-col items-center">
         
-        {/* --- 1. LOGO GRANDE (COM ILUMINAÇÃO TRASEIRA CORRIGIDA) --- */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-8 relative p-8 rounded-full" // Adicionei padding para o glow respirar
-        >
-          {/* GLOW BRANCO/DOURADO ATRÁS DO LOGO PARA DAR CONTRASTE */}
-          {/* Mudei de 'bg-amber-500/20' para um gradiente radial forte */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.3)_0%,_rgba(245,158,11,0.1)_60%,_transparent_100%)] blur-2xl rounded-full transform scale-125 opacity-70 z-0" />
-          
-          <img 
-            src="/imagens/logo.png" 
-            alt="Visagismo AI Logo" 
-            // Adicionei um drop-shadow branco sutil para destacar as bordas do logo
-            className="relative z-10 h-32 md:h-40 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
-          />
-        </motion.div>
+        {/* --- 1. LOGO GRANDE (DIMENSÕES AMPLIADAS) --- */}
+<motion.div
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="mb-12 relative p-12 rounded-full" // Aumentei o margin-bottom e padding
+>
+  {/* GLOW DE FUNDO - Expandido para acompanhar o logo maior */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.35)_0%,_rgba(245,158,11,0.15)_60%,_transparent_100%)] blur-3xl rounded-full transform scale-150 opacity-80 z-0" />
+  
+  <img 
+    src="/imagens/logo.png" 
+    alt="Visagismo AI Logo" 
+    // ALTURA AUMENTADA: de h-32 para h-48 (mobile) e de md:h-40 para md:h-64 (desktop)
+    className="relative z-10 h-48 md:h-64 w-auto object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.5)]"
+  />
+</motion.div>
 
         {/* --- BARRA DE STATUS --- */}
         <motion.div
